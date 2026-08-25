@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #160f1f;
+    color: #f8f4fa;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#inicio {
+    padding: 35px 20px;
+    background-color: #4a1942;
+    color: #ffffff;
+    text-align: center;
+    border-bottom: 4px solid #ffb000;
+}
+
+#inicio h1 {
+    margin: 0 0 10px;
+    font-size: 40px;
+}
+
+#inicio p {
+    margin: 0;
+}
+
+.menu-principal {
+    margin: 0;
+    background-color: #24102e;
+    border-bottom: 1px solid #6f4a7e;
+}
+
+.menu-principal ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-principal li {
+    margin: 0 10px;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.menu-principal a:hover {
+    background-color: #3b1d4a;
+    border-bottom: 3px solid #ffb000;
+}
+
+#productos {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #2d1b3d;
+    border: 1px solid #6f4a7e;
+}
+
+#productos h2 {
+    margin-top: 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.lista-productos {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.producto {
+    width: 350px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #432c4f;
+    border: 2px solid #ffb000;
+    text-align: center;
+}
+
+.producto:nth-child(2) {
+    border-color: #00c2d1;
+}
+
+.producto p:first-child {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.producto img {
+    display: block;
+    width: 250px;
+    height: 320px;
+    margin: 15px auto;
+    background-color: #ffffff;
+    border: 2px solid #8d6a9f;
+    object-fit: contain;
+}
+
+#contacto {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #24102e;
+    color: #ffffff;
+    text-align: center;
+    border-top: 4px solid #ffb000;
+}
+
+#contacto p {
+    margin: 0;
+}
