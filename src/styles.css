@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #160f1f;
+    color: #f8f4fa;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#inicio {
+    padding: 35px 20px;
+    background-color: #4a1942;
+    color: #ffffff;
+    text-align: center;
+    border-bottom: 4px solid #ffb000;
+}
+
+#inicio h1 {
+    margin: 0 0 10px;
+    font-size: 40px;
+}
+
+#inicio p {
+    margin: 0;
+}
+
+.menu-principal {
+    margin: 0;
+    background-color: #24102e;
+    border-bottom: 1px solid #6f4a7e;
+}
+
+.menu-principal ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-principal li {
+    margin: 0 10px;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.menu-principal a:hover {
+    background-color: #3b1d4a;
+    border-bottom: 3px solid #ffb000;
+}
+
+#productos {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #2d1b3d;
+    border: 1px solid #6f4a7e;
+}
+
+#productos h2 {
+    margin-top: 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.producto {
+    padding: 20px;
+    background-color: #432c4f;
+    color: #ffffff;
+    border: 2px solid #ffb000;
+    text-align: center;
+}
+
+.producto img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    margin: 0 0 18px;
+    border: none;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+#contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #24102e;
+    color: #ffffff;
+    text-align: center;
+    border-top: 4px solid #ffb000;
+}
+
+#contacto p {
+    margin: 0;
+}
+
+/*  Tablets */
+@media (max-width: 768px) {
+    #inicio h1 {
+        font-size: 34px;
+    }
+
+    #productos {
+        margin: 20px;
+        padding: 20px;
+    }
+
+
+    .producto {
+        padding: 15px;
+    }
+
+    .producto img {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* Teléfonos */
+@media (max-width: 480px) {
+    #inicio {
+        padding: 25px 15px;
+    }
+
+    #inicio h1 {
+        font-size: 30px;
+    }
+
+    .menu-principal ul {
+        flex-direction: column;
+    }
+
+    .menu-principal li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    #productos {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    #productos h2 {
+        font-size: 24px;
+    }
+
+
+    .producto img {
+        height: 280px;
+    }
+}
+
+    .carrito-flotante {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1050;
+        padding: 12px 18px;
+        border-radius: 50px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+/* Ajustes de los componentes React, conservando el diseño de la semana 6. */
+html { scroll-behavior: smooth; }
+body { min-width: 320px; }
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+#contacto { padding-bottom: 95px; }
+.menu-principal .nav-link.active { color: #ffb000; border-bottom-color: #ffb000; }
+.menu-principal .navbar-brand { border-bottom: 0; padding: 10px 0; }
+.menu-principal .navbar-brand:hover { background: transparent; }
+.producto h3 { font-size: 1.35rem; }
+.producto img { margin-left: auto; margin-right: auto; }
+.producto .btn:disabled { opacity: 1; }
+.buscador .btn { white-space: nowrap; }
+.resultado-catalogo { color: #e8ddeb; }
+.carrito-flotante { z-index: 1030; }
+.item-carrito { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.item-carrito strong { overflow-wrap: anywhere; }
+.item-carrito .btn { flex-shrink: 0; }
+.portada-alternativa {
+    height: 320px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background: #24102e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+.portada-alternativa span { font-size: 3rem; }
+.portada-alternativa small { color: #e8ddeb; }
+@media (max-width: 480px) {
+    .portada-alternativa { height: 280px; }
+    .menu-principal .navbar-brand { font-size: 1.1rem; }
+    .carrito-flotante { right: 16px; bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
