@@ -1,6 +1,6 @@
 # Camperos Games
 
-Versión simple de la tienda de videojuegos en React para la Semana 8.
+Versión de la tienda de videojuegos en React para la Semana 8.
 
 ## Ejecutar
 
@@ -38,10 +38,3 @@ Settings → Pages → Deploy from a branch → gh-pages → / (root).
 
 La base está preparada para el repositorio `Camperos_Games`.
 
-## Guías
-
-- [Explicación del código](docs/EXPLICACION.md)
-- [Subir con ramas y publicar](docs/GITHUB.md)
-- [Pruebas y capturas de entrega](docs/ENTREGA.md)
-
-**Autor del proyecto:** Víctor Marambio.
