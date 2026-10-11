@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import Encabezado from './components/Encabezado.jsx';
 import ProductoCard from './components/ProductoCard.jsx';
 import Carrito from './components/Carrito.jsx';
+import Contacto from './components/Contacto.jsx';
+import GestionCatalogo from './components/GestionCatalogo.jsx';
 
 export default function App() {
   // App comparte el catálogo y el carrito con sus componentes mediante props.
@@ -45,6 +47,20 @@ export default function App() {
 
   function eliminarDelCarrito(id) {
     setCarrito((actual) => actual.filter((producto) => producto.id !== id));
+  }
+
+  // Actualiza el catálogo con un nuevo arreglo y asigna un identificador único.
+  function agregarVideojuego(producto) {
+    setProductos((actual) => {
+      const nuevoId = actual.reduce((mayor, juego) => Math.max(mayor, juego.id), 0) + 1;
+      return [...actual, { ...producto, id: nuevoId }];
+    });
+    mostrarTodos();
+  }
+
+  function eliminarVideojuego(id) {
+    setProductos((actual) => actual.filter((producto) => producto.id !== id));
+    eliminarDelCarrito(id);
   }
 
   function mostrarTodos() {
@@ -99,13 +115,35 @@ export default function App() {
             ))}
           </div>
         </section>
+
+        <Contacto />
       </main>
+      <div className="modal fade" id="modalGestion" tabIndex="-1" aria-labelledby="tituloGestion" aria-hidden="true">
+        <div className="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+          <div className="modal-content text-bg-dark">
+            <div className="modal-header">
+              <h2 className="modal-title fs-4" id="tituloGestion">Gestión del catálogo</h2>
+              <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar gestión" />
+            </div>
+            <div className="modal-body">
+              {cargando && <p role="status">Cargando catálogo…</p>}
+              {error && <p className="alert alert-danger" role="alert">{error}</p>}
+              {!cargando && !error && (
+                <GestionCatalogo productos={productos} onAgregar={agregarVideojuego} onEliminar={eliminarVideojuego} />
+              )}
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-outline-light" data-bs-dismiss="modal">Cerrar gestión</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <Carrito
         productos={carrito}
         onEliminar={eliminarDelCarrito}
         onVaciar={() => setCarrito([])}
       />
-      <footer id="contacto">
+      <footer className="pie-pagina">
         <p>Dirección: Avenida Vicuña Mackenna Oriente 6100, La Florida, Chile.</p>
       </footer>
     </>

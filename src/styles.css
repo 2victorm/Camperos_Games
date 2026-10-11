@@ -90,7 +90,7 @@ body {
     object-fit: cover;
 }
 
-#contacto {
+.pie-pagina {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +102,7 @@ body {
     border-top: 4px solid #ffb000;
 }
 
-#contacto p {
+.pie-pagina p {
     margin: 0;
 }
 
@@ -178,7 +178,7 @@ html { scroll-behavior: smooth; }
 body { min-width: 320px; }
 #root { min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; }
-#contacto { padding-bottom: 95px; }
+.pie-pagina { padding-bottom: 95px; }
 .menu-principal .nav-link.active { color: #ffb000; border-bottom-color: #ffb000; }
 .menu-principal .navbar-brand { border-bottom: 0; padding: 10px 0; }
 .menu-principal .navbar-brand:hover { background: transparent; }
@@ -212,4 +212,42 @@ main { flex: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+}
+
+/* Secciones de la evaluación final con la misma paleta del catálogo. */
+.seccion-formulario {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #2d1b3d;
+    border: 1px solid #6f4a7e;
+}
+.seccion-formulario h2 { font-size: 28px; }
+.producto h3, .producto p { overflow-wrap: anywhere; }
+@media (max-width: 768px) {
+    .seccion-formulario { margin: 20px; padding: 20px; }
+    .menu-principal li { margin: 0; }
+    .menu-principal .nav-link { padding: 10px; }
+}
+@media (max-width: 480px) {
+    .seccion-formulario { margin: 15px 10px; padding: 15px; }
+    .seccion-formulario h2 { font-size: 24px; }
+}
+
+.menu-principal .boton-gestion {
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    padding: 15px 20px;
+}
+.menu-principal .boton-gestion:hover {
+    background-color: #3b1d4a;
+    border-bottom-color: #ffb000;
+}
+@media (max-width: 768px) {
+    .menu-principal .boton-gestion { padding: 10px; }
+}
+@media (max-width: 480px) {
+    .menu-principal .boton-gestion { width: 100%; }
 }
