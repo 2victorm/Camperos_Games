@@ -46,6 +46,12 @@ export default function Encabezado({ categoria, onCategoria, onInicio }) {
                   onClick={() => seleccionarCategoria('deportes')}>Deportes</a>
               </li>
               <li className="nav-item">
+                <button type="button" className="nav-link boton-gestion" data-bs-toggle="modal"
+                  data-bs-target="#modalGestion" aria-controls="modalGestion" onClick={() => setMenuAbierto(false)}>
+                  Gestionar catálogo
+                </button>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="#contacto" onClick={() => setMenuAbierto(false)}>Contacto</a>
               </li>
             </ul>
