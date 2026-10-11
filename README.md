@@ -1,100 +1,118 @@
 # Camperos Games
 
-Evaluación Final Transversal de Desarrollo Frontend I (PFY2201).
-Alumno: Víctor Marambio.
+Proyecto de la Evaluación Final Transversal de Desarrollo Frontend I (PFY2201).
 
-Tienda de videojuegos desarrollada a partir del proyecto de la semana 8.
-Utiliza HTML semántico, CSS, JavaScript, Bootstrap 5 y React con Vite.
+**Alumno:** Víctor Marambio.
 
-## Instalación y ejecución
+Camperos Games es una tienda de videojuegos desarrollada a partir del proyecto de la semana 8. Permite consultar productos, buscar por nombre, filtrar por categoría y agregar videojuegos a un carrito. También incluye un formulario de contacto y una ventana para gestionar el catálogo.
 
-Requisitos: Node.js 22.12 o superior y npm.
-Descomprime el proyecto y abre una terminal en la carpeta que contiene package.json.
+## Tecnologías utilizadas
+
+- HTML y CSS.
+- JavaScript.
+- Bootstrap 5.
+- React.
+- Vite.
+
+## Instalación
+
+Se necesita Node.js 22.12 o superior y npm.
+
+Desde la carpeta del proyecto, instalar las dependencias:
 
 ```bash
 npm install
+```
+
+Iniciar la aplicación:
+
+```bash
 npm run dev
 ```
 
-Abre la dirección que aparece en la terminal. Detén el servidor con Ctrl+C.
-Para compilar y revisar la versión de producción:
+Abrir en el navegador la dirección que muestra la terminal. Para detener el servidor, presionar `Ctrl+C`.
+
+## Funcionalidades
+
+- Catálogo cargado desde un archivo JSON.
+- Tarjetas con imagen, nombre, descripción y precio.
+- Búsqueda de videojuegos por nombre.
+- Filtros por las categorías Acción y Deportes.
+- Carrito lateral con contador de productos y total en pesos chilenos.
+- Opciones para eliminar productos del carrito o vaciarlo.
+- Gestión del catálogo en una ventana modal para agregar y eliminar videojuegos.
+- Formulario de contacto con validación de nombre, correo y mensaje.
+- Diseño adaptable a escritorio, tablet y teléfono.
+
+## Organización del proyecto
+
+```text
+public/
+  data/
+    productos.json
+src/
+  components/
+    Carrito.jsx
+    Contacto.jsx
+    Encabezado.jsx
+    GestionCatalogo.jsx
+    ProductoCard.jsx
+  App.jsx
+  main.jsx
+  styles.css
+index.html
+package.json
+vite.config.js
+```
+
+- **App.jsx:** carga los productos y maneja el catálogo, los filtros y el carrito.
+- **Encabezado.jsx:** muestra el encabezado y la navegación.
+- **ProductoCard.jsx:** muestra la tarjeta de cada videojuego.
+- **Carrito.jsx:** muestra los productos seleccionados y calcula el total.
+- **GestionCatalogo.jsx:** permite agregar y eliminar videojuegos.
+- **Contacto.jsx:** contiene el formulario y sus validaciones.
+- **styles.css:** contiene los estilos personalizados.
+- **productos.json:** contiene los datos iniciales de los videojuegos.
+
+## Funcionamiento
+
+Los productos se cargan con `fetch` dentro de `useEffect`. Se utiliza `useState` para manejar los datos y actualizar la página cuando el usuario realiza una acción.
+
+Los componentes reciben información y funciones mediante props. La búsqueda y los filtros utilizan `filter`, y las tarjetas se generan con `map`.
+
+Bootstrap se utiliza para las tarjetas, los formularios, la navegación, el carrito lateral y la ventana modal.
+
+## Consideraciones
+
+- El catálogo y el carrito se reinician al recargar la página.
+- Cada videojuego se puede agregar una sola vez al carrito.
+- Al eliminar un videojuego del catálogo, también se elimina del carrito.
+- La gestión del catálogo es una demostración de una función administrativa y no tiene inicio de sesión.
+- El formulario de contacto simula el envío y no envía correos reales.
+- Las imágenes se cargan desde direcciones externas. Si una imagen falla, se muestra una portada alternativa.
+
+## Versión de producción
+
+Para compilar el proyecto:
 
 ```bash
 npm run build
+```
+
+Para revisar la versión compilada:
+
+```bash
 npm run preview
 ```
 
-## Uso
+## GitHub Pages
 
-- Inicio: muestra los videojuegos disponibles.
-- Acción y Deportes: filtran el catálogo por categoría.
-- Buscador: filtra por nombre; Ver todos limpia los filtros.
-- Agregar al carrito: incorpora un juego una sola vez. El carrito lateral
-  permite eliminar juegos, vaciar la lista y consultar el total en pesos chilenos.
-- Gestionar catálogo: abre una ventana modal de Bootstrap sobre la tienda.
-  Puedes cerrarla con la X, Cerrar gestión o Escape. Permite agregar un videojuego con nombre, categoría, precio,
-  descripción y dirección de imagen, o eliminar uno existente.
-  Al eliminarlo del catálogo también se elimina del carrito.
-- Contacto: valida nombre, formato de correo y mensaje. Muestra los errores
-  y una confirmación cuando los datos son correctos.
+El proyecto está configurado para el repositorio `Camperos_Games`.
 
-Los cambios del catálogo y del carrito se mantienen en el estado de React
-hasta recargar la página. El formulario simula el envío: no envía correos
-ni utiliza un servidor. No se implementan pagos ni autenticación.
-Las portadas utilizan direcciones externas; si una falla se muestra un reemplazo.
-
-## Estructura y funcionamiento
-
-- index.html: documento HTML y elemento root.
-- public/data/productos.json: arreglo de objetos con los datos iniciales.
-- src/main.jsx: monta React e importa Bootstrap y CSS.
-- src/App.jsx: carga los datos con fetch y useEffect; maneja con useState
-  catálogo, carrito, búsqueda, categoría, carga y error. Pasa datos y funciones
-  mediante props. filter selecciona los productos y map genera las tarjetas.
-- src/components/Encabezado.jsx: encabezado y navegación responsive.
-- src/components/ProductoCard.jsx: tarjeta reutilizable de un videojuego.
-- src/components/Carrito.jsx: carrito lateral, contador y total.
-- src/components/GestionCatalogo.jsx: formulario para agregar y lista para eliminar videojuegos.
-- src/components/Contacto.jsx: formulario y validación de datos.
-- src/styles.css: estilos personalizados y adaptación a tamaños de pantalla.
-- vite.config.js: configuración de Vite y ruta para GitHub Pages.
-
-React actualiza el DOM cuando cambia el estado. Se utilizan arreglos nuevos
-con spread y filter para agregar o eliminar elementos sin modificar el estado directamente.
-Las columnas de Bootstrap y Flexbox organizan la interfaz responsive.
-
-## Publicación en GitHub Pages
-
-La configuración mantiene el nombre de repositorio Camperos_Games.
-Desde tu copia conectada al repositorio GitHub, ejecuta:
+Para publicar:
 
 ```bash
 npm run deploy
 ```
 
-En GitHub configura Settings > Pages > Deploy from a branch > gh-pages > / (root).
-Si cambias el nombre del repositorio, ajusta base en vite.config.js.
-
-## Comprobación antes de entregar
-
-1. Confirmar que aparecen los seis videojuegos iniciales con nombre, precio y descripción.
-2. Probar Acción, Deportes, búsqueda y una búsqueda sin resultados.
-3. Agregar juegos al carrito, comprobar total, eliminar y vaciar.
-4. Intentar agregar al catálogo campos vacíos y precio negativo: deben rechazarse.
-5. Agregar un juego válido, buscarlo, agregarlo al carrito y eliminarlo del catálogo.
-6. En Contacto probar campos vacíos, espacios, correo incorrecto y datos correctos.
-7. Probar navegación y carrito en escritorio, tablet y móvil.
-8. Repetir el recorrido en Chrome y Firefox y comprobar que no hay errores en consola.
-
-## Entrega
-
-Compartir el enlace del repositorio, el ZIP del proyecto y un video MP4 que
-muestre el funcionamiento y explique el diseño y el código.
-El ZIP no incluye node_modules ni dist: npm install instala las dependencias.
-Registrar cambios reales en Git con mensajes claros; este ZIP no contiene el historial de GitHub.
-
-## Validación realizada
-
-La instalación con npm ci y la compilación con npm run build se completaron
-correctamente. La revisión visual y las pruebas manuales en Chrome y Firefox
-quedan pendientes y deben realizarse siguiendo el recorrido anterior.
+En la configuración de GitHub Pages se debe seleccionar la rama `gh-pages` y la carpeta raíz.
